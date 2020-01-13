@@ -24,22 +24,19 @@ int gagner = 1;
       printf("\nL'ennemie attaque et te retire %d hp\n", attaque_ennemi );
       vie_joueur = vie_joueur - attaque_ennemi;
       printf("\nIl te reste donc %d hp\n", vie_joueur );
-      if (vie_joueur < 0) {
-        printf("tu es mort\n");
-      }
     }
     else{
       printf("\nL'ennemie attaque et te retire %d hp\n", attaque_ennemi );
       vie_joueur = vie_joueur - attaque_ennemi;
       printf("\nIl te reste donc %d hp\n", vie_joueur );
-      if (vie_joueur < 0) {
-        printf("tu es mort\n");
-        gagner = 0;
-      }
-      if (vie_ennemi < 0) {
-        printf("Tu as gagner le combat\n");
-        gagner = 0;
-      }
+    }
+    if (vie_joueur <= 0) {
+      printf("tu es mort\n");
+      gagner = 0;
+    }
+    if (vie_ennemi <= 0) {
+      printf("Tu as gagner le combat\n");
+      gagner = 0;
     }
   }
 }
