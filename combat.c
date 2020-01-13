@@ -25,10 +25,14 @@ int gagner = 1;
       vie_joueur = vie_joueur - attaque_ennemi;
       printf("\nIl te reste donc %d hp\n", vie_joueur );
     }
-    else{
-      printf("\nL'ennemie attaque et te retire %d hp\n", attaque_ennemi );
+    if (attaque == 2) {
+      printf("tu as choisi de te defendre\n");
+      attaque_ennemi = 1;
       vie_joueur = vie_joueur - attaque_ennemi;
-      printf("\nIl te reste donc %d hp\n", vie_joueur );
+      printf("tu prends donc seulement %d de degat\n",attaque_ennemi );
+      printf("Il te reste donc %d hp\n", vie_joueur);
+      printf("L'ennemie a lui %d hp\n", vie_ennemi );
+      attaque_ennemi = 5;
     }
     if (vie_joueur <= 0) {
       printf("tu es mort\n");
