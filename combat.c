@@ -13,7 +13,8 @@ int point_magie= 100;
 int point_magie_ennemie = 100;
 int poison_atcif;
 int poison_actif_ennemie;
-int degat_poison = 1;
+int degat_poison;
+int degat_poison_ennemie;
   printf("\ntu possede : %d hp", vie_joueur);
   printf("\n L'ennemie a lui : %d hp", vie_ennemi);
   printf("\ntu as attaquer l'ennemie avec ton epee");
@@ -27,7 +28,7 @@ int degat_poison = 1;
     scanf("%d", &attaque);
     if (attaque == 1) {
       srand(time(NULL));
-      int nbgen=rand()%2+1;
+      int nbgen=rand()%3+1;
       decision_ennemi = nbgen;
       if (decision_ennemi == 1) {
         printf("Tu attaque !\n");
@@ -47,10 +48,19 @@ int degat_poison = 1;
         printf("Il reste : %d hp au monstre ! \n", vie_ennemi);
 
       }
+      if ( decision_ennemi == 3) {
+        printf("L'ennemie utilise un sort d'empoisonnement\n");
+        printf("Tu es empoissoner !\n");
+        degat_poison_ennemie = degat_poison_ennemie+1;
+        printf("tu prends %d degats d'empoisonnement\n", degat_poison_ennemie );
+
+        vie_joueur = vie_joueur - degat_poison;
+        printf("Il te reste %d hp\n");
+      }
     }
     if (attaque == 2) {
       srand(time(NULL));
-      int nbgen=rand()%2+1;
+      int nbgen=rand()%3+1;
       decision_ennemi = nbgen;
       if (decision_ennemi == 1) {
         printf("tu te defends !\n");
@@ -67,9 +77,69 @@ int degat_poison = 1;
         vie_joueur = vie_joueur - attaque_ennemi;
         printf("\nIl te reste donc %d hp\n", vie_joueur );
         attaque_ennemi = 5;
+      }
+      if ( decision_ennemi == 3) {
+        printf("L'ennemie utilise un sort d'empoisonnement\n");
+        printf("Tu es empoissoner !\n");
+        degat_poison_ennemie = degat_poison_ennemie+1;
+        printf("tu prends %d degats d'empoisonnement\n", degat_poison_ennemie );
 
+        vie_joueur = vie_joueur - degat_poison;
+        printf("Il te reste %d hp\n");
       }
     }
+<<<<<<< Updated upstream
+=======
+    if (attaque == 3 && point_magie > 10) {
+      srand(time(NULL));
+      int nbgen=rand()%3+1;
+      decision_ennemi = nbgen;
+      if (decision_ennemi == 1) {
+        printf("L'ennemie se defend ! \n" );
+        printf("Il te reste donc : %d hp\n", vie_joueur);
+        printf("tu lance un sort d'empoisonnement ! \n");
+        printf("L'ennemie est empoissoner ! \n");
+        poison_atcif = 1;
+        degat_poison = degat_poison +1;
+        vie_ennemi = vie_ennemi - degat_poison;
+        printf("Il reste donc %d hp au monstre ! \n", vie_ennemi);
+      }
+      if (decision_ennemi == 2) {
+        printf("tu lance un sort d'empoisonnement ! \n");
+        printf("L'ennemie est empoissoner ! \n");
+        poison_atcif = 1;
+        degat_poison = degat_poison +1;
+        vie_ennemi = vie_ennemi - degat_poison;
+        printf("Il reste donc %d hp au monstre ! \n", vie_ennemi);
+        printf("\nL'ennemie attaque et te retire %d hp\n", attaque_ennemi );
+        vie_joueur = vie_joueur - attaque_ennemi;
+        printf("\nIl te reste donc %d hp\n", vie_joueur );
+        attaque_ennemi = 5;
+
+      }
+      if ( decision_ennemi == 3) {
+        printf("L'ennemie utilise un sort d'empoisonnement\n");
+        printf("Tu es empoissoner !\n");
+        degat_poison_ennemie = degat_poison_ennemie+1;
+        printf("tu prends %d degats d'empoisonnement\n", degat_poison_ennemie );
+
+        vie_joueur = vie_joueur - degat_poison;
+        printf("Il te reste %d hp\n");
+      }
+    }
+    if (poison_atcif == 1) {
+      printf("L'ennemie est empoissoner\n" );
+      printf("Il prend %d de degats\n", degat_poison);
+      vie_ennemi = vie_ennemi - degat_poison;
+      printf("Il lui reste %d hp \n", vie_ennemi );
+    }
+    if (poison_actif_ennemie == 1) {
+      printf("tu es empoissoner\n" );
+      printf("tu prends %d de degats\n", degat_poison_ennemie);
+      vie_joueur = vie_joueur - degat_poison;
+      printf("Il te reste %d hp \n", vie_joueur );
+    }
+>>>>>>> Stashed changes
     if (vie_joueur <= 0) {
       printf("tu es mort\n");
       gagner = 0;
