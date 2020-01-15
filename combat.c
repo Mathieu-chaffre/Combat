@@ -94,12 +94,7 @@ int degat_poison = 1;
         attaque_ennemi = 5;
 
       }
-      if (poison_atcif == 1) {
-        printf("L'ennemie est empoissoner\n" );
-        printf("Il prend %d de degats\n", degat_poison);
-        vie_ennemi = vie_ennemi - degat_poison
-        printf("Il lui reste %d hp \n", vie_ennemi);
-      }
+
 
     }
     if (vie_joueur <= 0) {
