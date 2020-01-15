@@ -70,6 +70,39 @@ int degat_poison = 1;
 
       }
     }
+    if (attaque == 3 && point_magie > 10) {
+      if (decision_ennemi == 1) {
+        printf("L'ennemie se defend ! \n" );
+        printf("Il te reste donc : %d hp\n", vie_joueur);
+        printf("tu lance un sort d'empoisonnement ! \n");
+        printf("L'ennemie est empoissoner ! \n");
+        poison_atcif = 1;
+        degat_poison = degat_poison +1;
+        vie_ennemi = vie_ennemi - degat_poison;
+        printf("Il reste donc %d hp au monstre ! \n", vie_ennemi);
+      }
+      if (decision_ennemi == 2) {
+        printf("tu lance un sort d'empoisonnement ! \n");
+        printf("L'ennemie est empoissoner ! \n");
+        poison_atcif = 1;
+        degat_poison = degat_poison +1;
+        vie_ennemi = vie_ennemi - degat_poison;
+        printf("Il reste donc %d hp au monstre ! \n", vie_ennemi);
+        printf("\nL'ennemie attaque et te retire %d hp\n", attaque_ennemi );
+        vie_joueur = vie_joueur - attaque_ennemi;
+        printf("\nIl te reste donc %d hp\n", vie_joueur );
+        attaque_ennemi = 5;
+
+      }
+      if (poison_atcif == 1) {
+        printf("L'ennemie est empoissoner\n" );
+        printf("Il prend %d de degats\n", degat_poison);
+        vie_ennemi = vie_ennemi - degat_poison
+        printf("Il lui reste %d hp \n", vie_ennemi );
+      }
+
+
+    }
     if (vie_joueur <= 0) {
       printf("tu es mort\n");
       gagner = 0;
