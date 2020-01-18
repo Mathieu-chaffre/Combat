@@ -149,7 +149,7 @@ int potion = 10;
       }
     }
 
-    if (attaque == 4) {
+    if (attaque == 4 && potion > 1) {
       printf("tu prends une potiion de guerison pour l'empoisonnement\n");
       poison_actif_ennemie = 0;
       degat_poison_ennemie = 0;
