@@ -88,8 +88,6 @@ int degat_poison_ennemie;
         printf("Il te reste %d hp\n");
       }
     }
-<<<<<<< Updated upstream
-=======
     if (attaque == 3 && point_magie > 10) {
       srand(time(NULL));
       int nbgen=rand()%3+1;
@@ -139,7 +137,6 @@ int degat_poison_ennemie;
       vie_joueur = vie_joueur - degat_poison;
       printf("Il te reste %d hp \n", vie_joueur );
     }
->>>>>>> Stashed changes
     if (vie_joueur <= 0) {
       printf("tu es mort\n");
       gagner = 0;
