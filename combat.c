@@ -17,14 +17,7 @@ int degat_poison = 0;
 int degat_poison_ennemie =0;
 int potion = 10;
 
-  printf("\ntu possede : %d hp", vie_joueur);
-  printf("\n L'ennemie a lui : %d hp", vie_ennemi);
-  printf("\ntu as attaquer l'ennemie avec ton epee");
-  vie_ennemi = vie_ennemi-epee;
-  printf("\nIl reste %d hp au monstre", vie_ennemi );
-  printf("\nL'ennemie attaque et t'enleve %d hp\n", attaque_ennemi );
-  vie_joueur = vie_joueur - attaque_ennemi;
-  printf("\nIl te reste donc %d hp\n", vie_joueur );
+
 
 
   while (gagner == 1) {
