@@ -66,3 +66,7 @@ float note;
 
 
 typedef struct eleve eleveETPA;
+
+afficheeleve(etudiant mavaretudiant){
+printf("%d", mavariableetudiant.numero);
+}
