@@ -9,6 +9,8 @@ int decision_joueur;
 int decision_ennemi;
 int poison_actif =0;
 int poison_actif_ennemie=0;
+int degat_poison = 1;
+int degat_poison_ennemie = 1;
 int gagner =1;
 int save_j;
 int save_ennemie;
@@ -31,10 +33,12 @@ void defense(){
  if (decision_joueur == 3) {
    printf("Tu l'empoisonne\n");
    poison_actif = 1;
+   degat_poison = degat_poison+1;
  }
  if (decision_joueur == 4) {
    printf("Tu utilise une potion\n");
    poison_actif_ennemie = 0;
+   degat_poison_ennemie = 1;
  }
     printf(" il reste % hp au monstre\n", vie_ennemie );
     printf("Il te reste %d hp\n", vie_joueur);
@@ -60,11 +64,13 @@ void attaque() {
     printf("Tu l'empoisonne\n");
     poison_actif = 1;
     vie_joueur = vie_joueur - attaque_ennemi;
+    degat_poison = degat_poison+1;
   }
   if (decision_joueur == 4) {
     printf("potion\n");
     poison_actif_ennemie = 0;
     vie_joueur = vie_joueur - attaque_ennemi;
+    degat_poison_ennemie = 1;
   }
   printf("il te reste %d hp\n", vie_joueur);
   printf("Il reste %d hp au monstre\n", vie_ennemie );
@@ -76,19 +82,24 @@ void poison () {
     printf("Attaque\n");
     vie_ennemie = vie_ennemie -attaque_j;
     poison_actif_ennemie = 1;
+    degat_poison_ennemie = degat_poison +1;
     printf("Il t'empoisonne\n");
   }
   if (decision_joueur == 2) {
     printf("Il t'empoisonne\n");
     poison_actif_ennemie = 1;
+    degat_poison_ennemie = degat_poison +1;
   }
   if (decision_joueur == 3) {
     printf("Vous utiliser un sort d'empoisonnement tout les deux !\n");
     poison_actif = 1;
+    degat_poison_ennemie = degat_poison +1;
+    degat_poison = degat_poison+1;
     poison_actif_ennemie = 1;
   }
   if (decision_joueur == 4) {
     printf("Tu utilise une potion mais l'ennemie utilise un sort d'empoisonnennement\n");
+    degat_poison_ennemie = 1;
     poison_actif_ennemie = 1;
   }
 
@@ -132,6 +143,14 @@ int main(){
       int nbgen=rand()%3+1;
       decision_ennemi = nbgen;
       ennemie();
+    }
+    if (poison_actif == 1) {
+      vie_ennemie = vie_ennemie - degat_poison;
+      printf("le monstre perd des hp a cause du poison. Il lui reste %d hp\n", vie_ennemie );
+    }
+    if (poison_actif_ennemie == 1) {
+      vie_joueur = vie_joueur - degat_poison_ennemie;
+      printf(" Tu es empoissoner. il te reste %d hp\n", vie_joueur);
     }
 
     if (vie_ennemie <= 0) {
