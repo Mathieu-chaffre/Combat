@@ -9,6 +9,7 @@ int decision_joueur;
 int decision_ennemi;
 int poison_actif =0;
 int poison_actif_ennemie=0;
+int gagner =1;
 
 
 void defense(){
@@ -18,7 +19,7 @@ void defense(){
  attaque_j = attaque_j /2;
  if (decision_joueur == 1) {
    printf("Attaque\n");
-   vie_ennemi = vie_ennemi -attaque_j;
+   vie_ennemie = vie_ennemie -attaque_j;
 
  }
  if (decision_joueur == 2) {
@@ -27,13 +28,13 @@ void defense(){
  }
  if (decision_joueur == 3) {
    printf("Tu l'empoisonne\n");
-   poison_atcif = 1;
+   poison_actif = 1;
  }
  if (decision_joueur == 4) {
-   printf("Tu utilise une potion"\n");
+   printf("Tu utilise une potion\n");
    poison_actif_ennemie = 0;
  }
-    printf(" il reste % hp au monstre\n", vie_ennemi );
+    printf(" il reste % hp au monstre\n", vie_ennemie );
     printf("Il te reste %d hp\n", vie_joueur);
     attaque_j = save_j;
 
@@ -43,7 +44,7 @@ void attaque() {
   printf("L'ennemie attaque\n");
   if (decision_joueur == 1) {
     printf("Tu attaque\n");
-    vie_ennemi = vie_ennemi -attaque_j;
+    vie_ennemie = vie_ennemie -attaque_j;
     vie_joueur = vie_joueur - attaque_ennemi;
   }
   if (decision_joueur == 2) {
@@ -55,7 +56,7 @@ void attaque() {
   }
   if (decision_joueur == 3) {
     printf("Tu l'empoisonne\n");
-    poison_atcif = 1;
+    poison_actif = 1;
     vie_joueur = vie_joueur - attaque_ennemi;
   }
   if (decision_joueur == 4) {
@@ -64,14 +65,14 @@ void attaque() {
     vie_joueur = vie_joueur - attaque_ennemi;
   }
   printf("il te reste %d hp\n", vie_joueur);
-  printf("Il reste %d hp au monstre\n", vie_ennemi );
+  printf("Il reste %d hp au monstre\n", vie_ennemie );
 
 }
 
 void poison () {
   if (decision_joueur == 1) {
     printf("Attaque\n");
-    vie_ennemi = vie_ennemi -attaque_j
+    vie_ennemie = vie_ennemie -attaque_j;
     poison_actif_ennemie = 1;
     printf("Il t'empoisonne\n");
   }
@@ -90,27 +91,35 @@ void poison () {
   }
 
   printf("il te reste %d hp\n", vie_joueur);
-  printf("Il lui reste %d hp\n", vie_ennemi );
+  printf("Il lui reste %d hp\n", vie_ennemie );
 }
 
 
-main(){
+
+
+
+int main(){
+  while (gagner == 1) {
   printf("choisi ton attaque :\n");
   scanf("%d", decision_joueur);
     srand(time(NULL));
     int nbgen=rand()%3+1;
     decision_ennemi = nbgen;
     if (decision_ennemi == 1) {
-      defense()
+      defense();
     }
     if (decision_ennemi == 2) {
-      attaque()
+      attaque();
     }
     if (decision_ennemi == 3) {
-      poison()
+      poison();
+    }
+    if (vie_ennemie <= 0) {
+      gagner = 0;
+    }
+    if (vie_joueur <=0) {
+      gagner = 0;
     }
   }
-
-
-  return 0
-}
+  return 0;
+  }
