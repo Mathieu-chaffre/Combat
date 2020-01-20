@@ -70,3 +70,12 @@ typedef struct eleve eleveETPA;
 afficheeleve(etudiant mavaretudiant){
 printf("%d", mavariableetudiant.numero);
 }
+
+
+Tableau = 
+
+pseudo-code = Type nomtableau [taille];
+
+int temperature[15];
+
+Pour avoir la premiere valeurs = temperatures[0] =/ temperature[1]
