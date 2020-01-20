@@ -1,0 +1,68 @@
+les var =
+
+-int = entier
+-float = reel
+-double = reel plus long
+-char = caractère
+
+
+
+Alea =
+
+#include  time.h
+#include stdlib.h
+rand();
+srand(time(NULL))
+
+
+
+fonction =
+
+avec return
+
+maFonction  (int var1_1, char vari_2){
+type vari3;
+
+
+
+return vari 3;
+}
+
+sans return
+
+void maFonction(int var1, char var2){
+type var3;
+}
+
+Scanf printf pour les formats =
+POUR PRINTF
+
+pour entier = ("%d",entier)
+
+pour float(donc deux chiffre derrière la virgule) = ("%f", reel)
+
+pour double(plus de chiffre derrière la virgule) = ("%lf", double)
+
+POUR SCANF
+
+pareil mais avec un & avant la variable.
+ex: ("%f", &reel)
+
+
+Notion des structure = 
+
+
+struct nomdelastructure{
+
+
+}
+
+
+ex : struct eleve{
+
+int numero_eleve;
+float note;
+};
+
+
+typedef struct eleve eleveETPA;

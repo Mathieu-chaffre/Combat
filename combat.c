@@ -28,7 +28,7 @@ int potion = 10;
 
 
   while (gagner == 1) {
-    printf("tu veux attaquer l'ennemie ? (1 attaque, 2 defense, 3 empoisonnement, 4 potion)");
+    printf("\ntu veux attaquer l'ennemie ? (1 attaque, 2 defense, 3 empoisonnement, 4 potion\n");
     printf("Il te reste %d de potion\n", potion );
     printf("Il te reste %d de point de magie\n", point_magie );
     scanf("%d", &attaque);
