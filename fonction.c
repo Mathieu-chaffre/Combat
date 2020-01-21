@@ -42,7 +42,7 @@ void defense(){
    poison_actif_ennemie = 0;
    degat_poison_ennemie = 1;
  }
-    printf(" il reste % hp au monstre\n", vie_ennemie );
+    printf(" il reste %d hp au monstre\n", vie_ennemie );
     printf("Il te reste %d hp\n", vie_joueur);
     attaque_j = save_j;
 
