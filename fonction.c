@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-int vie_joueur;
-int attaque_j;
-int vie_ennemie;
-int attaque_ennemi;
+int vie_joueur = 100;
+int attaque_j = 10;
+int vie_ennemie= 100;
+int attaque_ennemi = 5;
 int decision_joueur;
 int decision_ennemi;
 int poison_actif =0;
 int poison_actif_ennemie=0;
 int degat_poison = 1;
 int degat_poison_ennemie = 1;
-int gagner =1;
+int gagner = 1;
 int save_j;
 int save_ennemie;
 
