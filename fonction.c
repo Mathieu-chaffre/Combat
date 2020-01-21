@@ -14,16 +14,18 @@ int degat_poison_ennemie = 1;
 int gagner = 1;
 int save_j;
 int save_ennemie;
+int potion = 10;
 
 
 void defense(){
  printf("L'ennemie se defends\n");
- printf("Tu lui fais moins de dégats\n");
+ printf("Tu lui fais moins de degats\n");
  save_j = attaque_j;
  attaque_j = attaque_j /2;
+ vie_joueur = vie_joueur;
  if (decision_joueur == 1) {
    printf("Attaque\n");
-   vie_ennemie = vie_ennemie -attaque_j;
+   vie_ennemie = vie_ennemie - attaque_j;
 
  }
  if (decision_joueur == 2) {
@@ -124,7 +126,7 @@ void ennemie(){
 int main(){
   while (gagner == 1) {
   printf("choisi ton attaque :\n");
-  scanf("%d", decision_joueur);
+  scanf("%d", &decision_joueur);
 
     if (decision_joueur == 1) {
       srand(time(NULL));
@@ -144,6 +146,12 @@ int main(){
       decision_ennemi = nbgen;
       ennemie();
     }
+    if (decision_joueur == 4) {
+      srand(time(NULL));
+      int nbgen=rand()%3+1;
+      decision_ennemi = nbgen;
+      ennemie();
+    }
     if (poison_actif == 1) {
       vie_ennemie = vie_ennemie - degat_poison;
       printf("le monstre perd des hp a cause du poison. Il lui reste %d hp\n", vie_ennemie );
@@ -152,12 +160,18 @@ int main(){
       vie_joueur = vie_joueur - degat_poison_ennemie;
       printf(" Tu es empoissoner. il te reste %d hp\n", vie_joueur);
     }
+    else{
+      vie_joueur = vie_joueur;
+    }
+
 
     if (vie_ennemie <= 0) {
       gagner = 0;
+      printf("Tu as gagné !\n", );
     }
     if (vie_joueur <=0) {
       gagner =0;
+      printf("Tu as perdu ! \n", );
     }
   }
   return 0;
