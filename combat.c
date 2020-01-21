@@ -33,7 +33,7 @@ int potion = 10;
       decision_ennemi = nbgen;
       if (decision_ennemi == 1) {
         printf("Tu attaque !\n");
-        printf("L'ennemie c'est proteger !\n");
+        printf("L'ennemie s'est proteger !\n");
         epee = 2.5;
         printf("tu n'a fait que %d degats\n", epee);
         vie_ennemi = vie_ennemi - epee;
