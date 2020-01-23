@@ -493,11 +493,11 @@ int main(){
 
     if (vie_ennemie <= 0) {
       gagner = 0;
-      printf("Tu as gagné !\n", );
+      printf("Tu as gagné !\n");
     }
     if (humain.vie <=0) {
       gagner =0;
-      printf("Tu as perdu ! \n", );
+      printf("Tu as perdu ! \n");
     }
   }
   return 0;
