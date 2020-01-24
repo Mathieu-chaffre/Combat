@@ -134,6 +134,94 @@ if(hobbit.vie >=0){
 
 
 
+
+//set attaque des joueurs
+if(decision_de_joueur != 1){
+ if (humain.decision == 1) {
+   printf("Attaque\n");
+   vie_ennemie = vie_ennemie - humain.attaque;
+
+ }
+ if (humain.decision == 2) {
+   printf("Defense\n");
+   printf("pas de degats\n");
+ }
+ if (humain.decision == 3) {
+   printf("Tu l'empoisonne\n");
+   humain.poison_actif_a = 1;
+   humain.degat_poison_a = humain.degat_poison_a+1;
+ }
+ if (humain.decision == 4) {
+   printf("Tu utilise une potion\n");
+   humain.poison_actif_ennemi_a = 0;
+   humain.degat_poison_a_ennemie = 1;
+ }
+}
+
+
+ //nain
+ if(decision_de_joueur != 2){
+ if(nain.vie >=0){
+ if (nain.decision == 1) {
+   printf("Le nain utilise jet de pierre\n");
+   vie_ennemie = vie_ennemie - nain.attaque;
+
+ }
+ if (nain.decision == 2) {
+   printf("Le nain se defend\n");
+   printf("pas de degats\n");
+ }
+ if (nain.decision == 3) {
+   printf("Le nain empoisonne l'ennemie\n");
+   nain.poison_actif_a = 1;
+   nain.degat_poison_a = nain.degat_poison_a+1;
+ }
+}
+}
+
+ //elfe
+ if(decision_de_joueur != 3){
+if(elfe.vie >=0){
+ if (elfe.decision == 1) {
+   printf("l'elfe attaque\n");
+   vie_ennemie = vie_ennemie - elfe.attaque;
+
+ }
+ if (elfe.decision == 2) {
+   printf("l'elfe tire sur l'epee de l'ennemie et devie son coup\n");
+   printf("pas de degats\n");
+ }
+ if (elfe.decision == 3) {
+   printf("L'elfe lance une attaque d'empoisonnennement\n");
+   elfe.poison_actif_a = 1;
+   elfe.degat_poison_a = elfe.degat_poison_a+1;
+ }
+}
+}
+
+
+ //hobbit
+ if(decision_de_joueur!=4){
+if(hobbit.vie >=0){
+ if (hobbit.decision == 1) {
+   printf("le hobbit attaque\n");
+   vie_ennemie = vie_ennemie - hobbit.attaque;
+
+ }
+ if (hobbit.decision == 2) {
+   printf("le hobbit se defend\n");
+   printf("pas de degats\n");
+ }
+ if (hobbit.decision == 3) {
+   printf("Le hobbit lance une attaque d'empoisonnennement\n");
+   hobbit.poison_actif_a = 1;
+   hobbit.degat_poison_a = hobbit.degat_poison_a+1;
+ }
+
+}
+}
+
+
     printf(" il reste %d hp au monstre\n", vie_ennemie );
     printf("Il te reste %d hp\n", humain.vie);
     printf("Il reste %d hp a l'elfe\n", elfe.vie);
@@ -202,7 +290,7 @@ void attaque() {
 }
 
   //nain
-  if(decision_de_joueur){
+  if(decision_de_joueur == 3){
 if(nain.vie >=0){
   if (nain.decision == 1) {
     printf("le nain utilise jet de pierre\n");
@@ -246,6 +334,92 @@ if(nain.vie >=0){
     hobbit.vie = hobbit.vie - attaque_ennemi;
     hobbit.degat_poison_a = hobbit.degat_poison_a+1;
   }
+}
+}
+
+//decison attaque_ennemi
+
+
+if(decision_de_joueur!=1){
+if (humain.decision == 1) {
+  printf("Tu attaque\n");
+  vie_ennemie = vie_ennemie - humain.attaque;
+  humain.vie = humain.vie - attaque_ennemi;
+}
+if (humain.decision == 2) {
+  printf("Defense\n");
+}
+if (humain.decision == 3) {
+  printf("Tu l'empoisonne\n");
+  humain.poison_actif_a = 1;
+  humain.degat_poison_a = humain.degat_poison_a+1;
+}
+if (humain.decision == 4) {
+  printf("potion\n");
+  humain.poison_actif_ennemi_a = 0;
+  humain.degat_poison_a_ennemie = 1;
+}
+}
+
+
+//elfe
+if(decision_de_joueur!=2){
+if (elfe.vie) {
+if (elfe.decision == 1) {
+  printf("L'elfe attaque\n");
+  vie_ennemie = vie_ennemie - elfe.attaque;
+  elfe.vie = elfe.vie - attaque_ennemi;
+}
+if (elfe.decision == 2) {
+  printf("l'elfe tire sur l'epee de l'ennemie et devie son coup\n");
+}
+if (elfe.decision == 3) {
+  printf("L'elfe l'empoisonne\n");
+  elfe.poison_actif_a = 1;
+  elfe.degat_poison_a = elfe.degat_poison_a+1;
+}
+}
+}
+
+//nain
+if(decision_de_joueur !=3){
+if(nain.vie >=0){
+if (nain.decision == 1) {
+  printf("le nain utilise jet de pierre\n");
+  vie_ennemie = vie_ennemie - nain.attaque;
+  elfe.vie = elfe.vie - attaque_ennemi;
+}
+if (nain.decision == 2) {
+  printf("Le nain se defend\n");
+  save_ennemie= attaque_ennemi;
+  attaque_ennemi = attaque_ennemi /2;
+  nain.vie = nain.vie - attaque_ennemi;
+  attaque_ennemi = save_ennemie;
+}
+if (nain.decision == 3) {
+  printf("Le nain l'empoisonne\n");
+  nain.poison_actif_a = 1;
+  nain.vie = nain.vie - attaque_ennemi;
+  nain.degat_poison_a = nain.degat_poison_a+1;
+}
+}
+}
+
+//hobbit
+if(decision_de_joueur != 4){
+if(hobbit.vie >=0){
+if (hobbit.decision == 1) {
+  printf("Le hobbit attaque\n");
+  vie_ennemie = vie_ennemie - hobbit.attaque;
+}
+if (hobbit.decision == 4) {
+  printf("Le hobbit se defend\n");
+}
+if (hobbit.decision == 3) {
+  printf("Le hobbit l'empoisonne\n");
+  hobbit.poison_actif_a = 1;
+  hobbit.degat_poison_a = hobbit.degat_poison_a+1;
+}
 }
 }
 
@@ -359,6 +533,113 @@ if(hobbit.vie >=0){
     hobbit.degat_poison_a_ennemie = hobbit.degat_poison_a_ennemie +1;
     hobbit.degat_poison_a = hobbit.degat_poison_a+1;
   }
+}
+}
+
+
+
+//decision_ennemi
+
+
+
+if(decision_de_joueur==1){
+if (humain.decision == 1) {
+  printf("Attaque\n");
+  vie_ennemie = vie_ennemie -humain.attaque;
+  humain.poison_actif_ennemi_a = 1;
+  humain.degat_poison_a_ennemie = humain.degat_poison_a_ennemie +1;
+  printf("Il t'empoisonne\n");
+}
+if (humain.decision == 2) {
+  printf("Il t'empoisonne\n");
+  humain.poison_actif_ennemi_a = 1;
+  humain.degat_poison_a_ennemie = humain.degat_poison_a_ennemie +1;
+}
+if (humain.decision == 3) {
+  printf("Vous utiliser un sort d'empoisonnement tout les deux !\n");
+  humain.poison_actif_a = 1;
+  humain.degat_poison_a = humain.degat_poison_a +1;
+  humain.degat_poison_a_ennemie = humain.degat_poison_a_ennemie+1;
+  humain.poison_actif_ennemi_a = 1;
+}
+if (humain.decision == 4) {
+  printf("Tu utilise une potion mais l'ennemie utilise un sort d'empoisonnennement\n");
+  humain.degat_poison_a_ennemie = 1;
+  humain.poison_actif_ennemi_a = 1;
+}
+}
+
+// elfe
+if(decision_de_joueur==2){
+if(elfe.vie){
+if (elfe.decision == 1) {
+  printf("Attaque\n");
+  vie_ennemie = vie_ennemie -elfe.attaque;
+  elfe.poison_actif_ennemi_a = 1;
+  elfe.degat_poison_a_ennemie = elfe.degat_poison_a_ennemie +1;
+  printf("L'elfe est empoissonee\n");
+}
+if (elfe.decision == 2) {
+  printf("Il empoisonne l'elfe\n");
+  elfe.poison_actif_ennemi_a = 1;
+  elfe.degat_poison_a_ennemie = elfe.degat_poison_a_ennemie +1;
+}
+if (elfe.decision == 3) {
+  printf("L'elfe l'empoisonne et lui aussi !\n");
+  elfe.poison_actif_a = 1;
+  elfe.poison_actif_ennemi_a =1;
+  elfe.degat_poison_a_ennemie = elfe.degat_poison_a_ennemie +1;
+  elfe.degat_poison_a = elfe.degat_poison_a+1;
+}
+}
+}
+
+//nain
+if(decision_de_joueur == 3){
+if(nain.vie >=0){
+if (nain.decision == 1) {
+  printf("Attaque\n");
+  vie_ennemie = vie_ennemie -nain.attaque;
+  nain.poison_actif_ennemi_a = 1;
+  nain.degat_poison_a_ennemie = nain.degat_poison_a_ennemie +1;
+  printf("Le nain est empoissonee\n");
+}
+if (nain.decision == 2) {
+  printf("Il 'empoisonne le nain\n");
+  nain.poison_actif_ennemi_a = 1;
+  nain.degat_poison_a_ennemie = nain.degat_poison_a_ennemie +1;
+}
+if (nain.decision == 3) {
+  printf("le nain l'empoisonne et lui aussi l'empoisonne !\n");
+  nain.poison_actif_a = 1;
+  nain.poison_actif_ennemi_a = 1;
+  nain.degat_poison_a_ennemie = nain.degat_poison_a_ennemie +1;
+  nain.degat_poison_a = nain.degat_poison_a+1;
+}
+}
+}
+
+//hobbit
+if(decision_de_joueur==4){
+if(hobbit.vie >=0){
+if (hobbit.decision == 1) {
+  printf("Attaque\n");
+  vie_ennemie = vie_ennemie -hobbit.attaque;
+  hobbit.poison_actif_ennemi_a = 1;
+  printf("Le nain est empoissonee\n");
+}
+if (hobbit.decision == 2) {
+  printf("le nain se defend\n");
+  hobbit.poison_actif_ennemi_a = 1;
+  hobbit.degat_poison_a_ennemie = hobbit.degat_poison_a_ennemie +1;
+}
+if (hobbit.decision == 3) {
+  printf("Le hobbit l'empoisonne et lui aussi l'empoisonne !\n");
+  hobbit.poison_actif_a = 1;
+  hobbit.poison_actif_ennemi_a = 1;
+  hobbit.degat_poison_a_ennemie = hobbit.degat_poison_a_ennemie +1;
+  hobbit.degat_poison_a = hobbit.degat_poison_a+1;
+}
 }
 }
 
