@@ -389,19 +389,13 @@ if(nain.vie >=0){
 if (nain.decision == 1) {
   printf("le nain utilise jet de pierre\n");
   vie_ennemie = vie_ennemie - nain.attaque;
-  elfe.vie = elfe.vie - attaque_ennemi;
 }
 if (nain.decision == 2) {
   printf("Le nain se defend\n");
-  save_ennemie= attaque_ennemi;
-  attaque_ennemi = attaque_ennemi /2;
-  nain.vie = nain.vie - attaque_ennemi;
-  attaque_ennemi = save_ennemie;
 }
 if (nain.decision == 3) {
   printf("Le nain l'empoisonne\n");
   nain.poison_actif_a = 1;
-  nain.vie = nain.vie - attaque_ennemi;
   nain.degat_poison_a = nain.degat_poison_a+1;
 }
 }
@@ -649,6 +643,8 @@ int random(){
   int nbgen=rand()%3+1;
   return nbgen;
 }
+
+
 int random2(){
   srand(time(NULL));
   int nbgen=rand()%4+1;
