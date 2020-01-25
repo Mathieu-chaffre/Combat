@@ -223,7 +223,7 @@ if(hobbit.vie >=0){
 }
 }
 
-
+    printf("%d\n", decision_de_joueur );
     printf(" il reste %d hp au monstre\n", vie_ennemie );
     printf("Il te reste %d hp\n", humain.vie);
     printf("Il reste %d hp a l'elfe\n", elfe.vie);
@@ -425,7 +425,7 @@ if (hobbit.decision == 3) {
 }
 }
 
-
+  printf("%d\n", decision_de_joueur );
   printf(" il reste %d hp au monstre\n", vie_ennemie );
   printf("Il te reste %d hp\n", humain.vie);
   printf("Il reste %d hp a l'elfe\n", elfe.vie);
@@ -622,7 +622,7 @@ if (hobbit.decision == 3) {
 }
 }
 }
-
+  printf("%d\n", decision_de_joueur );
   printf(" il reste %d hp au monstre\n", vie_ennemie );
   printf("Il te reste %d hp\n", humain.vie);
   printf("Il reste %d hp a l'elfe\n", elfe.vie);
