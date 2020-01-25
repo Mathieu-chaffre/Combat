@@ -166,7 +166,7 @@ if(decision_de_joueur != 1){
  if(nain.vie >=0){
  if (nain.decision == 1) {
    printf("Le nain utilise jet de pierre\n");
-   vie_ennemie = vie_ennemie - (nain.attaque/2);
+   vie_ennemie = vie_ennemie - nain.attaque;
 
  }
  if (nain.decision == 2) {
@@ -207,8 +207,7 @@ if(elfe.vie >=0){
 if(hobbit.vie >=0){
  if (hobbit.decision == 1) {
    printf("le hobbit attaque\n");
-   vie_ennemie = vie_ennemie - (hobbit.attaque/2);
-   printf("Il lui fait %d\n", hobbit.attaque/2 );
+   vie_ennemie = vie_ennemie - hobbit.attaque;
 
  }
  if (hobbit.decision == 2) {
