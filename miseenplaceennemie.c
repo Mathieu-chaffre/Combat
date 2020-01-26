@@ -648,6 +648,39 @@ int random2(){
   return nbgen;
 }
 
+int slime(){
+    printf("Tu attaque le slime !\n");
+    srand(time(NULL));
+    int nbgen=rand()%2+1;
+    if (nbgen == 1) {
+      printf("Mais le slime gobe ton épée tu fera moins de degats tout le reste du combat\n");
+      humain.attaque = 6;
+    }
+    if (nbgen == 2) {
+      printf("tu le blesse\n");
+      slime.vie = slime.vie - humain.attaque;
+    }
+
+}
+
+int attaque_multiple(){
+
+  srand(time(NULL));
+  int nbgen=rand()%2+1;
+  if (nbgen == 1) {
+    printf("Tu lance une attaque général !\n");
+    ogre.vie = ogre.vie - humain.attaque;
+    slime.vie = slime.vie - humain.attaque;
+  }
+  if (nbgen == 2) {
+    printf("Tout le monde esquive l'attaque\n");
+    printf("ils contre-attaqye\n");
+    humain.vie = humain.vie-(ogre.attaque + slime.attaque);
+  }
+
+
+}
+
 
 
 int main(){
@@ -691,6 +724,12 @@ int main(){
       ogre.decision = nbgen;
       decision_de_joueur= random2();
       ennemie();
+    }
+    if (humain.decison == 5) {
+      slime();
+    }
+    if (humain.decison == 6) {
+      attaque_multiple();
     }
     if (humain.poison_actif_a == 1) {
       ogre.vie = ogre.vie - humain.degat_poison_a;
