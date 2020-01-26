@@ -170,8 +170,9 @@ if(decision_de_joueur != 1){
 
  }
  if (nain.decision == 2) {
-   printf("Le nain se defend\n");
-   printf("pas de degats\n");
+   printf("Le nain te heal\n");
+   humain.vie = humain.vie +20;
+
  }
  if (nain.decision == 3) {
    printf("Le nain empoisonne l'ennemie\n");
@@ -191,7 +192,6 @@ if(elfe.vie >=0){
  }
  if (elfe.decision == 2) {
    printf("l'elfe tire sur l'epee de l'ennemie et devie son coup\n");
-   printf("pas de degats\n");
  }
  if (elfe.decision == 3) {
    printf("L'elfe lance une attaque d'empoisonnennement\n");
@@ -211,8 +211,7 @@ if(hobbit.vie >=0){
 
  }
  if (hobbit.decision == 2) {
-   printf("le hobbit se defend\n");
-   printf("pas de degats\n");
+   printf("le hobbit se cache\n");
  }
  if (hobbit.decision == 3) {
    printf("Le hobbit lance une attaque d'empoisonnennement\n");
@@ -374,6 +373,8 @@ if (elfe.decision == 1) {
 }
 if (elfe.decision == 2) {
   printf("l'elfe tire sur l'epee de l'ennemie et devie son coup\n");
+  printf("tu te prends malheureusement le coup !\n", );
+  humain.vie = humain.vie -3;
 }
 if (elfe.decision == 3) {
   printf("L'elfe l'empoisonne\n");
@@ -392,11 +393,7 @@ if (nain.decision == 1) {
   elfe.vie = elfe.vie - attaque_ennemi;
 }
 if (nain.decision == 2) {
-  printf("Le nain se defend\n");
-  save_ennemie= attaque_ennemi;
-  attaque_ennemi = attaque_ennemi /2;
-  nain.vie = nain.vie - attaque_ennemi;
-  attaque_ennemi = save_ennemie;
+  printf("Le nain se désinteresse du combat car il a vu une pépite d'or");
 }
 if (nain.decision == 3) {
   printf("Le nain l'empoisonne\n");
@@ -415,7 +412,7 @@ if (hobbit.decision == 1) {
   vie_ennemie = vie_ennemie - hobbit.attaque;
 }
 if (hobbit.decision == 4) {
-  printf("Le hobbit se defend\n");
+  printf("Le hobbit se cache car il a peur\n");
 }
 if (hobbit.decision == 3) {
   printf("Le hobbit l'empoisonne\n");
@@ -574,7 +571,8 @@ if (elfe.decision == 1) {
   vie_ennemie = vie_ennemie -elfe.attaque;
 }
 if (elfe.decision == 2) {
-printf("L'elfe se defend\n");
+printf("L'elfe tire dans les pieds de l'ennemie\n");
+vie_ennemie = vie_ennemie -2;
 }
 if (elfe.decision == 3) {
   printf("L'elfe l'empoisonne et lui aussi !\n");
@@ -593,7 +591,8 @@ if (nain.decision == 1) {
   vie_ennemie = vie_ennemie -nain.attaque;
 }
 if (nain.decision == 2) {
-  printf("le nain se defend\n");
+  printf("le nain se blesse\n");
+  nain.vie = nain.vie -1;
 
 }
 if (nain.decision == 3) {
@@ -612,7 +611,7 @@ if (hobbit.decision == 1) {
   vie_ennemie = vie_ennemie -hobbit.attaque;
 }
 if (hobbit.decision == 2) {
-  printf("le hobbit se defend\n");
+  printf("le hobbit rigole face au nain\n");
 
 }
 if (hobbit.decision == 3) {
