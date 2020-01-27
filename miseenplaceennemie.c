@@ -4,6 +4,7 @@
 int xp = 0;
 int decision_de_joueur;
 int gagner=1;
+int rejouer;
 
 struct allier{
   char* nom;
@@ -806,11 +807,28 @@ int main(){
     if (ogre.vie <= 0 && slime.vie <=0) {
       gagner = 0;
       printf("Tu as gagné !\n");
+      printf("Tu veux rejouer ?\n");
+
+      scanf("%d", &rejouer);
+      if (rejouer == 1) {
+        gagner = 1;
+        ogre.vie = 120;
+        slime.vie = 20;
+      }
     }
     if (humain.vie <=0) {
       gagner =0;
       printf("Tu as perdu ! \n");
+      printf("Tu veux rejouer ?\n");
+
+      scanf("%d", &rejouer);
+      if (rejouer == 1) {
+        gagner = 1;
+        ogre.vie = 120;
+        slime.vie = 20;
+      }
     }
   }
+
   return 0;
 }
