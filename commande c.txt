@@ -84,11 +84,10 @@ Pour avoir la premiere valeurs = temperatures[0] =/ temperature[1]
 
 voir photo de cours pour les caracteres 
 
-char
 
-pour fonction
+pour fonction et avoir l'adresse :
 
-Mafonction ( var*)(veut l'adresse) {
+Mafonction ( int * valeurs)(veut l'adresse) {
 
-valeurs = *valeurs +1;
+*valeurs = *valeurs +1;
 }                             
