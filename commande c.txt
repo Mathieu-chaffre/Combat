@@ -79,3 +79,16 @@ pseudo-code = Type nomtableau [taille];
 int temperature[15];
 
 Pour avoir la premiere valeurs = temperatures[0] =/ temperature[1]
+
+
+
+voir photo de cours pour les caracteres 
+
+char
+
+pour fonction
+
+Mafonction ( var*)(veut l'adresse) {
+
+valeurs = *valeurs +1;
+}                             
