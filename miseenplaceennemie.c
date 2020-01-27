@@ -813,7 +813,11 @@ int main(){
       if (rejouer == 1) {
         gagner = 1;
         ogre.vie = 120;
+        humain.vie = 100;
+        elfe.vie = 50;
         slime.vie = 20;
+        nain.vie = 150;
+        hobbit.vie = 90;
       }
     }
     if (humain.vie <=0) {
@@ -825,7 +829,11 @@ int main(){
       if (rejouer == 1) {
         gagner = 1;
         ogre.vie = 120;
+        humain.vie = 100;
+        elfe.vie = 50;
         slime.vie = 20;
+        nain.vie = 150;
+        hobbit.vie = 90;
       }
     }
   }
