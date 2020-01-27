@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-int decision_de_joueur;
+int xp = 0;
 
 struct allier{
   char* nom;
@@ -782,6 +782,19 @@ int main(){
       hobbit.vie = hobbit.vie;
     }
 
+    if (ogre.vie <=0) {
+      xp = xp+20;
+      printf("Le monstre est mort\n");
+      printf("Tu prends %d xp, tes degats augmente\n", xp);
+      humain.attaque = humain.attaque +4;
+
+    }
+    if (slime.vie <=0) {
+      xp = xp+5
+      printf("Le slime est mort\n");
+      printf("Tu prends %d xp, tes degats augmente\n", xp);
+      humain.attaque = humain.attaque +2;
+    }
 
 
     if (ogre.vie <= 0 && slime.vie <=0) {
