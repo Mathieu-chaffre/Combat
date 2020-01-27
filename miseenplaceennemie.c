@@ -660,6 +660,9 @@ int slime_attaque(){
     if (nbgen == 2) {
       printf("tu le blesse\n");
       slime.vie = slime.vie - humain.attaque;
+      humain.vie = humain.vie - slime.attaque;
+      printf("mais tu te blesse aussi\n");
+      printf("Il te reste %d hp\n", humain.vie);
     }
 
 }
@@ -672,11 +675,13 @@ int attaque_multiple(){
     printf("Tu lance une attaque général !\n");
     ogre.vie = ogre.vie - humain.attaque;
     slime.vie = slime.vie - humain.attaque;
+    printf("Il reste %d hp a l'ogre et %d hp au slime\n", ogre.vie, slime.vie);
   }
   if (nbgen == 2) {
     printf("Tout le monde esquive l'attaque\n");
     printf("ils contrent-attaque\n");
     humain.vie = humain.vie-(ogre.attaque + slime.attaque);
+    printf("il te reste %d hp\n", humain.vie);
   }
 
 
