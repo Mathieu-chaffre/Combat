@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 int xp = 0;
+int decision_de_joueur;
+int gagner=1;
 
 struct allier{
   char* nom;
@@ -24,7 +26,7 @@ perso nain = {"nain",150, 8, 0,0,0,0, 30,0,0,0};
 perso hobbit = {"hobbit", 90, 7, 0,0,0,0, 80,0,0,0};
 perso humain = {"humain",100, 10, 0,0,0,0, 110,0,0,0};
 perso ogre = {"ogre", 120, 8, 0,0,0,0, 100, 0, 0,0};
-perso slime = {"slime", 30, 3, 0,0,0,0,10,0,0,0 };
+perso slime = {"ogre", 20, 2, 0,0,0,0, 10, 0, 0,0};
 
 
 void defense(){
@@ -332,7 +334,7 @@ if(nain.vie >=0){
 }
 }
 
-//decison ogre.attaque
+//decision ogre.attaque
 
 
 if(decision_de_joueur!=1){
@@ -367,8 +369,7 @@ if (elfe.decision == 1) {
 }
 if (elfe.decision == 2) {
   printf("l'elfe tire sur l'epee de l'ennemie et devie son coup\n");
-  printf("tu te prends malheureusement le coup !\n", );
-  humain.vie = humain.vie -3;
+  printf("tu te prends malheureusement le coup !\n");
 }
 if (elfe.decision == 3) {
   printf("L'elfe l'empoisonne\n");
@@ -648,7 +649,7 @@ int random2(){
   return nbgen;
 }
 
-int slime(){
+int slime_attaque(){
     printf("Tu attaque le slime !\n");
     srand(time(NULL));
     int nbgen=rand()%2+1;
@@ -725,10 +726,10 @@ int main(){
       decision_de_joueur= random2();
       ennemie();
     }
-    if (humain.decison == 5) {
-      slime();
+    if (humain.decision == 5) {
+      slime_attaque();
     }
-    if (humain.decison == 6) {
+    if (humain.decision == 6) {
       attaque_multiple();
     }
     if (humain.poison_actif_a == 1) {
@@ -790,7 +791,7 @@ int main(){
 
     }
     if (slime.vie <=0) {
-      xp = xp+5
+      xp = xp+5;
       printf("Le slime est mort\n");
       printf("Tu prends %d xp, tes degats augmente\n", xp);
       humain.attaque = humain.attaque +2;
