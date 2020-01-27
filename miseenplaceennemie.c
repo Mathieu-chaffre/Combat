@@ -654,7 +654,7 @@ int slime_attaque(){
     srand(time(NULL));
     int nbgen=rand()%2+1;
     if (nbgen == 1) {
-      printf("Mais le slime gobe ton épée tu fera moins de degats tout le reste du combat\n");
+      printf("Mais le slime gobe ton epee tu fera moins de degats tout le reste du combat\n");
       humain.attaque = 6;
     }
     if (nbgen == 2) {
@@ -675,7 +675,7 @@ int attaque_multiple(){
   }
   if (nbgen == 2) {
     printf("Tout le monde esquive l'attaque\n");
-    printf("ils contre-attaqye\n");
+    printf("ils contrent-attaque\n");
     humain.vie = humain.vie-(ogre.attaque + slime.attaque);
   }
 
@@ -690,7 +690,7 @@ int main(){
 
 
   while (gagner == 1) {
-  printf("choisi ton attaque :\n");
+  printf("choisi ton attaque : 1(attaque l'ogre, 2 defense, 3 empoisonnennement, 4 potion, 5 attaquer le slime seulement masi tu ne peux l'attaquer que toi tout seul, 6 mais tu peux t'y faire contrer et tu attaque tout seul)\n");
   scanf("%d", &humain.decision);
   elfe.decision = random();
   hobbit.decision = random();
