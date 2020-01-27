@@ -5,6 +5,7 @@ int xp = 0;
 int decision_de_joueur;
 int gagner=1;
 int rejouer;
+int tour_mort;
 
 struct allier{
   char* nom;
@@ -789,18 +790,24 @@ int main(){
       hobbit.vie = hobbit.vie;
     }
 
-    if (ogre.vie <=0) {
+    if (ogre.vie <=0 && tour_mort!=1) {
+      tour_mort =1;
       xp = xp+20;
       printf("Le monstre est mort\n");
-      printf("Tu prends %d xp, tes degats augmente\n", xp);
+      printf("Tu as %d xp, tes degats augmente\n", xp);
       humain.attaque = humain.attaque +4;
-
     }
-    if (slime.vie <=0) {
+    if(ogre.vie <=0 && tour_mort==1){
+      printf("L'ogre est mort\n");
+    }
+    if (slime.vie <=0 && tour_mort !=1) {
       xp = xp+5;
       printf("Le slime est mort\n");
-      printf("Tu prends %d xp, tes degats augmente\n", xp);
+      printf("Tu as %d xp, tes degats augmente\n", xp);
       humain.attaque = humain.attaque +2;
+    }
+    if(ogre.vie <=0 && tour_mort==1){
+      printf("Le slime est mort\n");
     }
 
 
