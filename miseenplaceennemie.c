@@ -334,7 +334,7 @@ if(nain.vie >=0){
 }
 }
 
-//decision ogre.attaque
+//set attaque des alliers
 
 
 if(decision_de_joueur!=1){
@@ -532,7 +532,7 @@ if(hobbit.vie >=0){
 
 
 
-//ogre.decision
+//set attaque des alliers
 
 
 
